@@ -141,7 +141,7 @@ const normalizeProfileName = () => {
 const normalizeNewsDates = () => {
   document.querySelectorAll("td, th, span").forEach((element) => {
     const text = element.textContent.trim();
-    const monthOnly = text.replace(/^([A-Z][a-z]{2}) 01, ([0-9]{4})$/, "$1 $2");
+    const monthOnly = text.replace(/^([A-Z][a-z]{2}) [0-9]{1,2}, ([0-9]{4})$/, "$1 $2");
     if (monthOnly !== text) element.textContent = monthOnly;
   });
 };
