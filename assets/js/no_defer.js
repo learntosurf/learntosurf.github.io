@@ -2,20 +2,31 @@ const installSiteStyleOverrides = () => {
   const style = document.createElement("style");
   style.textContent = `
     :root {
-      --global-theme-color: #003b73 !important;
-      --global-hover-color: #002b55 !important;
-      --global-link-color: #003b73 !important;
+      --soomi-link-color: #003b73;
+      --soomi-link-hover-color: #002b55;
+      --soomi-separator-color: #111111;
+      --global-theme-color: var(--soomi-link-color) !important;
+      --global-hover-color: var(--soomi-link-hover-color) !important;
+      --global-link-color: var(--soomi-link-color) !important;
+    }
+
+    html[data-theme="dark"],
+    html[data-theme-setting="dark"],
+    [data-theme="dark"] {
+      --soomi-link-color: #7dbdff;
+      --soomi-link-hover-color: #a9d4ff;
+      --soomi-separator-color: #d7dce2;
     }
 
     a,
     a:hover {
-      color: #003b73;
+      color: var(--soomi-link-color);
     }
 
     .navbar a,
     .navbar .nav-link,
     .navbar .navbar-brand {
-      color: #003b73 !important;
+      color: var(--soomi-link-color) !important;
     }
 
     .post h1 strong,
@@ -66,7 +77,7 @@ const installSiteStyleOverrides = () => {
 
     .profile-socials a,
     .profile-socials span {
-      color: #003b73 !important;
+      color: var(--soomi-link-color) !important;
       line-height: 1;
     }
 
@@ -84,7 +95,7 @@ const installSiteStyleOverrides = () => {
     }
 
     .profile-social-separator {
-      color: #111111 !important;
+      color: var(--soomi-separator-color) !important;
       margin: 0 0.15rem;
     }
 
