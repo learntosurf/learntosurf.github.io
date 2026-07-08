@@ -114,8 +114,8 @@ const installSiteStyleOverrides = () => {
     }
 
     .news-logo-postech {
-      height: 0.66em;
-      transform: scaleX(0.9);
+      height: 0.6em;
+      transform: scaleX(0.82);
       transform-origin: left center;
     }
   `;
