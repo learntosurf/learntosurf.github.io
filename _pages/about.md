@@ -26,7 +26,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am an M.S. student at POSTECH in the [Machine Learning and Vision Group](https://mlv.postech.ac.kr/), advised by
+I am an M.S. student at POSTECH, advised by
 [Prof. Kwang In Kim](https://sites.google.com/view/kimki). Previously, I received my B.S. in Biomedical Engineering and Computer Science
 from Gachon University.
 
