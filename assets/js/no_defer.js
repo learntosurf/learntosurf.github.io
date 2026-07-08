@@ -44,11 +44,9 @@ const installSiteStyleOverrides = () => {
     }
 
     .profile img {
-      width: min(100%, 300px) !important;
-      max-width: 300px !important;
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
-      object-position: center center;
+      width: min(100%, 320px) !important;
+      max-width: 320px !important;
+      height: auto !important;
     }
 
     .post h2 {
@@ -63,7 +61,7 @@ const installSiteStyleOverrides = () => {
       gap: 0.35rem;
       margin-top: 1.25rem;
       margin-bottom: 2.6rem;
-      font-size: 1.25rem;
+      font-size: 1rem;
     }
 
     .profile-socials a,
@@ -78,7 +76,7 @@ const installSiteStyleOverrides = () => {
       align-items: center;
       gap: 0.22rem;
       text-decoration: none !important;
-      font-weight: 500;
+      font-weight: 400;
     }
 
     .profile-socials i {
@@ -98,14 +96,14 @@ const installSiteStyleOverrides = () => {
 
     .news-logo {
       display: inline-block;
-      height: 1.05em;
+      height: 0.82em;
       width: auto;
       margin: 0 0.12rem;
-      vertical-align: -0.12em;
+      vertical-align: -0.04em;
     }
 
     .news-logo-postech {
-      height: 1.15em;
+      height: 0.9em;
     }
   `;
   document.head.appendChild(style);
