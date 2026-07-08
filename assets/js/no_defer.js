@@ -55,8 +55,8 @@ const installSiteStyleOverrides = () => {
     }
 
     .profile img {
-      width: min(100%, 280px) !important;
-      max-width: 280px !important;
+      width: min(100%, 260px) !important;
+      max-width: 260px !important;
       height: auto !important;
     }
 
@@ -114,7 +114,9 @@ const installSiteStyleOverrides = () => {
     }
 
     .news-logo-postech {
-      height: 0.72em;
+      height: 0.66em;
+      transform: scaleX(0.9);
+      transform-origin: left center;
     }
   `;
   document.head.appendChild(style);
