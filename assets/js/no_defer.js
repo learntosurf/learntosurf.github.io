@@ -44,8 +44,8 @@ const installSiteStyleOverrides = () => {
     }
 
     .profile img {
-      width: min(100%, 320px) !important;
-      max-width: 320px !important;
+      width: min(100%, 280px) !important;
+      max-width: 280px !important;
       height: auto !important;
     }
 
