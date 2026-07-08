@@ -95,6 +95,18 @@ const installSiteStyleOverrides = () => {
       text-decoration-thickness: 1.5px;
       text-underline-offset: 3px;
     }
+
+    .news-logo {
+      display: inline-block;
+      height: 1.05em;
+      width: auto;
+      margin: 0 0.12rem;
+      vertical-align: -0.12em;
+    }
+
+    .news-logo-postech {
+      height: 1.15em;
+    }
   `;
   document.head.appendChild(style);
 };
