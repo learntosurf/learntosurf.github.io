@@ -26,6 +26,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
+<div style="height: 0.6em;"></div>
+
 I am an M.S. student at POSTECH, advised by
 [Prof. Kwang In Kim](https://sites.google.com/view/kimki). I received my B.S. in Biomedical Engineering and Computer Science from Gachon
 University.
