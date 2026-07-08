@@ -90,6 +90,14 @@ const normalizePublicationButtons = () => {
   });
 };
 
+const disablePlaceholderLinks = () => {
+  document.querySelectorAll('a[href="#"]').forEach((link) => {
+    link.removeAttribute("href");
+    link.setAttribute("aria-disabled", "true");
+    link.style.cursor = "default";
+  });
+};
+
 installSiteStyleOverrides();
 
 if (typeof determineThemeSetting === "function" && determineThemeSetting() === "system") {
@@ -113,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   normalizeNewsDates();
   normalizePublicationVenues();
   normalizePublicationButtons();
+  disablePlaceholderLinks();
 
   const compatBootstrap = Boolean(window.alFolio && window.alFolio.compatBootstrap);
   const computedTheme = typeof determineComputedTheme === "function" ? determineComputedTheme() : document.documentElement.dataset.theme || "light";
