@@ -136,7 +136,7 @@ const normalizeProfileName = () => {
     if (text !== "Soomi Jeong") return;
 
     heading.textContent = "Soomi Jeong";
-    heading.style.fontWeight = "350";
+    heading.style.fontWeight = "380";
   });
 };
 
