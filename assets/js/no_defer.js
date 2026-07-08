@@ -77,8 +77,16 @@ const normalizePublicationVenues = () => {
     }
 
     textNodes.forEach((textNode) => {
-      textNode.nodeValue = textNode.nodeValue.replace("In ICML", "ICML").replace(", 2026", " 2026");
+      textNode.nodeValue = textNode.nodeValue.replace(/\bIn ([A-Z0-9]+),\s*([0-9]{4})/g, "$1 $2");
     });
+  });
+};
+
+const normalizePublicationButtons = () => {
+  document.querySelectorAll("ol.bibliography a, .publications a").forEach((link) => {
+    const text = link.textContent.trim().toLowerCase();
+    if (text === "html") link.textContent = "Paper";
+    if (text === "website") link.textContent = "Project page";
   });
 };
 
@@ -104,6 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
   normalizeHomepageHeadings();
   normalizeNewsDates();
   normalizePublicationVenues();
+  normalizePublicationButtons();
 
   const compatBootstrap = Boolean(window.alFolio && window.alFolio.compatBootstrap);
   const computedTheme = typeof determineComputedTheme === "function" ? determineComputedTheme() : document.documentElement.dataset.theme || "light";
