@@ -28,3 +28,5 @@ latest_posts:
 
 I am an M.S. student at POSTECH in the [Machine Learning and Vision Group](https://mlv.postech.ac.kr/), advised by
 [Prof. Kwang In Kim](https://sites.google.com/view/kimki).
+
+My research lies in multimodal large language models and their ability to understand complex, structured information. I am especially interested in structure-aware and knowledge-enhanced methods that leverage graphs, knowledge graphs, and other structured representations to improve multimodal reasoning.
