@@ -16,7 +16,9 @@ if (typeof toggleThemeSetting === "function") {
 document.addEventListener("DOMContentLoaded", () => {
   const compatBootstrap = Boolean(window.alFolio && window.alFolio.compatBootstrap);
   const computedTheme =
-    typeof determineComputedTheme === "function" ? determineComputedTheme() : document.documentElement.dataset.theme || "light";
+    typeof determineComputedTheme === "function"
+      ? determineComputedTheme()
+      : document.documentElement.dataset.theme || "light";
 
   document.querySelectorAll("table").forEach((table) => {
     if (computedTheme === "dark") {

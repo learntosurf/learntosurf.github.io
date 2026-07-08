@@ -7,3 +7,7 @@
 
 "Vision":
   color: "#009f36"
+
+"ICML":
+  url: https://icml.cc/
+  color: "#00369f"
