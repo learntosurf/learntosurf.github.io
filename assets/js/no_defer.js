@@ -44,19 +44,26 @@ const installSiteStyleOverrides = () => {
     }
 
     .profile img {
-      width: min(100%, 340px) !important;
-      max-width: 340px !important;
-      aspect-ratio: 4 / 3;
+      width: min(100%, 300px) !important;
+      max-width: 300px !important;
+      aspect-ratio: 3 / 4;
       object-fit: cover;
-      object-position: center 66%;
+      object-position: center center;
+    }
+
+    .post h2 {
+      margin-top: 2.8rem;
+      margin-bottom: 1.4rem;
     }
 
     .profile-socials {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      flex-wrap: wrap;
+      gap: 0.35rem;
       margin-top: 1.25rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 2.6rem;
+      font-size: 1.25rem;
     }
 
     .profile-socials a,
@@ -65,18 +72,22 @@ const installSiteStyleOverrides = () => {
       line-height: 1;
     }
 
-    .profile-socials a {
+    .profile-socials a,
+    .profile-social-cv {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1.7rem;
+      gap: 0.22rem;
       text-decoration: none !important;
+      font-weight: 500;
     }
 
-    .profile-social-cv {
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: 0;
+    .profile-socials i {
+      font-size: 0.95em;
+    }
+
+    .profile-social-separator {
+      color: #111111 !important;
+      margin: 0 0.15rem;
     }
 
     .pub-self-author {
@@ -115,10 +126,15 @@ const normalizeNewsDates = () => {
 };
 
 const normalizePublicationVenues = () => {
+  const venuePattern = /(?:^|\b)In\s+([A-Z0-9]+),\s*([0-9]{4})/;
+
   document.querySelectorAll("ol.bibliography, .publications").forEach((section) => {
-    section.querySelectorAll("em, i").forEach((venue) => {
+    section.querySelectorAll("em, i, p, span").forEach((venue) => {
+      const canReplaceElement = venue.childElementCount === 0 || ["EM", "I"].includes(venue.tagName);
+      if (!canReplaceElement) return;
+
       const text = venue.textContent.trim().replace(/\s+/g, " ");
-      const normalized = text.replace(/^In\s+([A-Z0-9]+),\s*([0-9]{4})$/, "$1 $2");
+      const normalized = text.replace(venuePattern, "$1 $2");
       if (normalized !== text) venue.textContent = normalized;
     });
 
@@ -132,7 +148,7 @@ const normalizePublicationVenues = () => {
     }
 
     textNodes.forEach((textNode) => {
-      textNode.nodeValue = textNode.nodeValue.replace(/\bIn ([A-Z0-9]+),\s*([0-9]{4})/g, "$1 $2");
+      textNode.nodeValue = textNode.nodeValue.replace(/\bIn\s+([A-Z0-9]+),\s*([0-9]{4})/g, "$1 $2");
     });
   });
 };
@@ -211,6 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
   highlightSelfAuthors();
   normalizePublicationButtons();
   disablePlaceholderLinks();
+  window.setTimeout(normalizePublicationVenues, 250);
 
   const compatBootstrap = Boolean(window.alFolio && window.alFolio.compatBootstrap);
   const computedTheme = typeof determineComputedTheme === "function" ? determineComputedTheme() : document.documentElement.dataset.theme || "light";

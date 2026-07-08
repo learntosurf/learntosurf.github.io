@@ -34,11 +34,15 @@ interested in structure-aware and knowledge-enhanced methods that leverage graph
 to improve multimodal reasoning.
 
 <div class="profile-socials" aria-label="Social links">
-  <span class="profile-social-cv" aria-disabled="true">CV</span>
-  <a href="mailto:soomi1030@postech.ac.kr" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+  <a href="mailto:soomi1030@postech.ac.kr" aria-label="Email"><i class="fa-solid fa-envelope"></i>Email</a>
+  <span class="profile-social-separator">/</span>
+  <span class="profile-social-cv" aria-disabled="true"><i class="fa-solid fa-file-lines"></i>CV</span>
+  <span class="profile-social-separator">/</span>
   <a href="https://scholar.google.com/citations?user=dAD1WjIAAAAJ&hl=ko" aria-label="Google Scholar">
-    <i class="ai ai-google-scholar"></i>
+    <i class="fa-solid fa-graduation-cap"></i>Scholar
   </a>
-  <a href="https://www.linkedin.com/in/learntosurf" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-  <a href="https://github.com/learntosurf" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+  <span class="profile-social-separator">/</span>
+  <a href="https://github.com/learntosurf" aria-label="GitHub"><i class="fa-brands fa-github"></i>Github</a>
+  <span class="profile-social-separator">/</span>
+  <a href="https://www.linkedin.com/in/learntosurf" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i>Linkedin</a>
 </div>
