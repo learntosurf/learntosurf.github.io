@@ -1,3 +1,51 @@
+const installSiteStyleOverrides = () => {
+  const style = document.createElement("style");
+  style.textContent = `
+    :root {
+      --global-theme-color: #003b73 !important;
+      --global-hover-color: #002b55 !important;
+      --global-link-color: #003b73 !important;
+    }
+
+    a,
+    a:hover {
+      color: #003b73;
+    }
+
+    .navbar a,
+    .navbar .nav-link,
+    .navbar .navbar-brand {
+      color: #003b73 !important;
+    }
+
+    .post h1 strong,
+    .post h1 b,
+    .post h1 .font-weight-bold {
+      font-weight: 400 !important;
+    }
+
+    ol.bibliography .author a,
+    ol.bibliography .authors a,
+    .publications .author a,
+    .publications .authors a {
+      color: inherit !important;
+      border-bottom: 0 !important;
+      text-decoration: none !important;
+    }
+  `;
+  document.head.appendChild(style);
+};
+
+const normalizeHomepageHeadings = () => {
+  document.querySelectorAll("h1, h2").forEach((heading) => {
+    const text = heading.textContent.trim().toLowerCase();
+    if (text === "news") heading.textContent = "News";
+    if (text === "selected publications") heading.textContent = "Publications";
+  });
+};
+
+installSiteStyleOverrides();
+
 if (typeof determineThemeSetting === "function" && determineThemeSetting() === "system") {
   localStorage.setItem("theme", "light");
   document.documentElement.setAttribute("data-theme-setting", "light");
@@ -14,6 +62,8 @@ if (typeof toggleThemeSetting === "function") {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  normalizeHomepageHeadings();
+
   const compatBootstrap = Boolean(window.alFolio && window.alFolio.compatBootstrap);
   const computedTheme = typeof determineComputedTheme === "function" ? determineComputedTheme() : document.documentElement.dataset.theme || "light";
 
