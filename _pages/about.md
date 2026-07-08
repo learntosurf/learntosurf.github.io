@@ -28,13 +28,9 @@ latest_posts:
 
 <div style="height: 0.6em;"></div>
 
-I am an M.S. student at POSTECH, advised by
-[Prof. Kwang In Kim](https://sites.google.com/view/kimki). I received my B.S. in Biomedical Engineering and Computer Science from Gachon
-University.
+I am an M.S. student at POSTECH, advised by [Prof. Kwang In Kim](https://sites.google.com/view/kimki). I received my B.S. in Biomedical Engineering and Computer Science from Gachon University.
 
-My research lies in multimodal large language models and how they understand complex, structured information. I am especially interested
-in structure-aware and knowledge-enhanced methods that leverage graphs, knowledge graphs, and other structured representations to improve
-multimodal reasoning.
+My research lies in multimodal large language models and how they understand complex, structured information. I am especially interested in structure-aware and knowledge-enhanced methods that leverage graphs, knowledge graphs, and other structured representations to improve multimodal reasoning.
 
 <div class="profile-socials" aria-label="Social links">
   <a href="mailto:soomi1030@postech.ac.kr" aria-label="Email"><i class="fa-solid fa-envelope"></i>Email</a>
