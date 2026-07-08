@@ -72,7 +72,7 @@ const installSiteStyleOverrides = () => {
       gap: 0.35rem;
       margin-top: 1.25rem;
       margin-bottom: 2.6rem;
-      font-size: 1rem;
+      font-size: 0.92rem;
     }
 
     .profile-socials a,
