@@ -44,6 +44,31 @@ const normalizeHomepageHeadings = () => {
   });
 };
 
+const normalizeNewsDates = () => {
+  document.querySelectorAll("td, th, span").forEach((element) => {
+    const text = element.textContent.trim();
+    const monthOnly = text.replace(/^([A-Z][a-z]{2}) 01, ([0-9]{4})$/, "$1 $2");
+    if (monthOnly !== text) element.textContent = monthOnly;
+  });
+};
+
+const normalizePublicationVenues = () => {
+  document.querySelectorAll("ol.bibliography, .publications").forEach((section) => {
+    const walker = document.createTreeWalker(section, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    let node = walker.nextNode();
+
+    while (node) {
+      textNodes.push(node);
+      node = walker.nextNode();
+    }
+
+    textNodes.forEach((textNode) => {
+      textNode.nodeValue = textNode.nodeValue.replace("In ICML", "ICML").replace(", 2026", " 2026");
+    });
+  });
+};
+
 installSiteStyleOverrides();
 
 if (typeof determineThemeSetting === "function" && determineThemeSetting() === "system") {
@@ -63,6 +88,8 @@ if (typeof toggleThemeSetting === "function") {
 
 document.addEventListener("DOMContentLoaded", () => {
   normalizeHomepageHeadings();
+  normalizeNewsDates();
+  normalizePublicationVenues();
 
   const compatBootstrap = Boolean(window.alFolio && window.alFolio.compatBootstrap);
   const computedTheme = typeof determineComputedTheme === "function" ? determineComputedTheme() : document.documentElement.dataset.theme || "light";

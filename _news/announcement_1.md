@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper has been accepted.
+1 paper has been accepted to [ICML](https://icml.cc/).
