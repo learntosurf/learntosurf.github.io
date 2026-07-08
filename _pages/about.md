@@ -13,7 +13,7 @@ profile:
   more_info:
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+social: false # includes social icons at the bottom of the page
 
 announcements:
   enabled: true # includes a list of news items
@@ -29,4 +29,16 @@ latest_posts:
 I am an M.S. student at POSTECH in the [Machine Learning and Vision Group](https://mlv.postech.ac.kr/), advised by
 [Prof. Kwang In Kim](https://sites.google.com/view/kimki).
 
-My research lies in multimodal large language models and their ability to understand complex, structured information. I am especially interested in structure-aware and knowledge-enhanced methods that leverage graphs, knowledge graphs, and other structured representations to improve multimodal reasoning.
+My research lies in multimodal large language models and their ability to understand complex, structured information. I am especially
+interested in structure-aware and knowledge-enhanced methods that leverage graphs, knowledge graphs, and other structured representations
+to improve multimodal reasoning.
+
+<div class="profile-socials" aria-label="Social links">
+  <span class="profile-social-cv" aria-disabled="true">CV</span>
+  <a href="mailto:soomi1030@postech.ac.kr" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+  <a href="https://scholar.google.com/citations?user=dAD1WjIAAAAJ&hl=ko" aria-label="Google Scholar">
+    <i class="ai ai-google-scholar"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/learntosurf" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+  <a href="https://github.com/learntosurf" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+</div>

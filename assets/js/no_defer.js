@@ -35,6 +35,55 @@ const installSiteStyleOverrides = () => {
       border-bottom: 0 !important;
       text-decoration: none !important;
     }
+
+    ol.bibliography .abbr,
+    ol.bibliography .abbr *,
+    .publications .abbr,
+    .publications .abbr * {
+      color: #ffffff !important;
+    }
+
+    .profile img {
+      width: min(100%, 340px) !important;
+      max-width: 340px !important;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center 66%;
+    }
+
+    .profile-socials {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .profile-socials a,
+    .profile-socials span {
+      color: #003b73 !important;
+      line-height: 1;
+    }
+
+    .profile-socials a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      text-decoration: none !important;
+    }
+
+    .profile-social-cv {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .pub-self-author {
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 3px;
+    }
   `;
   document.head.appendChild(style);
 };
@@ -67,6 +116,12 @@ const normalizeNewsDates = () => {
 
 const normalizePublicationVenues = () => {
   document.querySelectorAll("ol.bibliography, .publications").forEach((section) => {
+    section.querySelectorAll("em, i").forEach((venue) => {
+      const text = venue.textContent.trim().replace(/\s+/g, " ");
+      const normalized = text.replace(/^In\s+([A-Z0-9]+),\s*([0-9]{4})$/, "$1 $2");
+      if (normalized !== text) venue.textContent = normalized;
+    });
+
     const walker = document.createTreeWalker(section, NodeFilter.SHOW_TEXT);
     const textNodes = [];
     let node = walker.nextNode();
@@ -78,6 +133,39 @@ const normalizePublicationVenues = () => {
 
     textNodes.forEach((textNode) => {
       textNode.nodeValue = textNode.nodeValue.replace(/\bIn ([A-Z0-9]+),\s*([0-9]{4})/g, "$1 $2");
+    });
+  });
+};
+
+const highlightSelfAuthors = () => {
+  document.querySelectorAll("ol.bibliography, .publications").forEach((section) => {
+    const walker = document.createTreeWalker(section, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    let node = walker.nextNode();
+
+    while (node) {
+      textNodes.push(node);
+      node = walker.nextNode();
+    }
+
+    textNodes.forEach((textNode) => {
+      if (!textNode.nodeValue.includes("Soomi Jeong")) return;
+      if (textNode.parentElement?.classList.contains("pub-self-author")) return;
+
+      const fragment = document.createDocumentFragment();
+      const parts = textNode.nodeValue.split("Soomi Jeong");
+
+      parts.forEach((part, index) => {
+        if (part) fragment.appendChild(document.createTextNode(part));
+        if (index === parts.length - 1) return;
+
+        const selfAuthor = document.createElement("span");
+        selfAuthor.className = "pub-self-author";
+        selfAuthor.textContent = "Soomi Jeong";
+        fragment.appendChild(selfAuthor);
+      });
+
+      textNode.parentNode.replaceChild(fragment, textNode);
     });
   });
 };
@@ -120,6 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
   normalizeHomepageHeadings();
   normalizeNewsDates();
   normalizePublicationVenues();
+  highlightSelfAuthors();
   normalizePublicationButtons();
   disablePlaceholderLinks();
 
