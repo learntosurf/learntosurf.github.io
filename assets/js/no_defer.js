@@ -20,7 +20,10 @@ const installSiteStyleOverrides = () => {
 
     .post h1 strong,
     .post h1 b,
-    .post h1 .font-weight-bold {
+    .post h1 span,
+    .post h1 .font-weight-bold,
+    .post-title span,
+    .post-title .font-weight-bold {
       font-weight: 400 !important;
     }
 
@@ -41,6 +44,16 @@ const normalizeHomepageHeadings = () => {
     const text = heading.textContent.trim().toLowerCase();
     if (text === "news") heading.textContent = "News";
     if (text === "selected publications") heading.textContent = "Publications";
+  });
+};
+
+const normalizeProfileName = () => {
+  document.querySelectorAll("h1").forEach((heading) => {
+    const text = heading.textContent.trim().replace(/\s+/g, " ");
+    if (text !== "Soomi Jeong") return;
+
+    heading.textContent = "Soomi Jeong";
+    heading.style.fontWeight = "400";
   });
 };
 
@@ -87,6 +100,7 @@ if (typeof toggleThemeSetting === "function") {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  normalizeProfileName();
   normalizeHomepageHeadings();
   normalizeNewsDates();
   normalizePublicationVenues();
