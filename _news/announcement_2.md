@@ -8,4 +8,4 @@ related_posts: false
 I started my M.S. in Artificial Intelligence at
 <a href="https://ai.postech.ac.kr/" aria-label="POSTECH AI">
   <img class="news-logo news-logo-postech" src="/assets/img/Postech_Logotype.svg" alt="POSTECH" />
-</a>.
+</a>
